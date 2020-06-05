@@ -1,2 +1,2 @@
 # Simple-KeyPairDB
-A simple example of a eyPair Database
+A simple example of a KeyPair Database
