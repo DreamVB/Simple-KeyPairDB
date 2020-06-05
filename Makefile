@@ -1,5 +1,5 @@
 all: 
-	gcc kpdb.c -o bin/kpdb
+	gcc kpdb.c -o kpdb
 
 clean: 
 	rm kpdb
