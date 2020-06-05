@@ -1,0 +1,4 @@
+Name=Ben George
+Age=43
+Working=yes
+Msg=All admins login to computer 2
