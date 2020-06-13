@@ -71,12 +71,34 @@ int _getKeyIndex(char *Key){
     return idx;
 }
 
+int _deleteItem(char *key){
+    //Get key index
+    int idx = _getKeyIndex(key);
+    int i = 0;
+
+    //If not key was founf
+    if(idx == INVALID){
+        //Return False
+        return FALSE;
+    }
+
+    //Shift all the items in the KeyPair array
+    for(i=idx-i;i < KeyPairCount - 1;i++){
+        KeyPair[i]=KeyPair[i+1];
+    }
+    //Minus one from KeyPairCount
+    KeyPairCount--;
+
+    return TRUE;
+}
+
 int _addNew(char *Key, char *Value){
 
     //First check if we already have the key
     if(_getKeyIndex(Key) != INVALID){
         return FALSE;
     }
+
     //Add the new key and value to the KeyPair Database
     strcpy(KeyPair[KeyPairCount].m_key,Key);
     strcpy(KeyPair[KeyPairCount].m_value,Value);
@@ -234,6 +256,12 @@ int main(int argc, char*argv[])
     strcpy(value,_getKeyValue("KeyTest"));
     //Print out found value
     printf("%s\n",value);
+
+    printf("Removing TestKey\n");
+    //Remove the test key
+    if(_deleteItem("KeyTest") == FALSE){
+        printf("Error Removeing TestKey\n");
+    }
 
     if(_Update() == FALSE){
         printf("There Was An Error Updating The Database.\n");
